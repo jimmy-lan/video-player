@@ -18,6 +18,32 @@
   <body>
     <div class="player">
       <video src="sample-video.mp4" class="video" playsinline></video>
+      <div class="show-controls">
+        <div class="controls-container">
+          <!-- Progress range is the background of the progress bar -->
+          <div class="progress-range">
+            <div class="progress-bar"></div>
+          </div>
+          <div class="control-group">
+            <!-- Left controls -->
+            <div class="controls-left">
+              <!-- Play/Pause -->
+              <div class="play">
+                <i class="fas fa-play" id="icon-play"></i>
+              </div>
+              <!-- Volume -->
+              <div class="volume">
+                <i class="fas fa-volume-up" title="Mute" id="icon-volume"></i>
+                <div class="volume-range" title="Change Volume">
+                  <div class="volume-bar"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Right controls -->
+            <div class="controls-right"></div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
