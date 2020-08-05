@@ -78,7 +78,7 @@ body {
 /* Progress Bar */
 .progress-range {
   height: 8px;
-  width: 100%;
+  width: calc(100% - 30px);
   background: rgba(202, 202, 202, 0.5);
   margin: auto;
   border-radius: 10px;
@@ -86,6 +86,12 @@ body {
   left: 15px;
   top: 15px;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.progress-range:hover {
+  top: 13px;
+  height: 12px;
 }
 
 .progress-bar {
