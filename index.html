@@ -11,7 +11,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -40,7 +40,26 @@
               </div>
             </div>
             <!-- Right controls -->
-            <div class="controls-right"></div>
+            <div class="controls-right">
+              <!-- Speed -->
+              <div class="speed" title="Playback Rate">
+                <select name="playback-rate" class="player-speed">
+                  <option value="0.5">0.5 x</option>
+                  <option value="1" selected>1 x</option>
+                  <option value="1.5">1.5 x</option>
+                  <option value="2">2 x</option>
+                </select>
+              </div>
+              <!-- Time -->
+              <div class="time">
+                <span class="time-elapsed">00:00 / </span>
+                <span class="time-duration">3:34</span>
+              </div>
+              <!-- Full Screen -->
+              <div class="fullscreen">
+                <i class="fas fa-expand"></i>
+              </div>
+            </div>
           </div>
         </div>
       </div>
