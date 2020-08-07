@@ -9,3 +9,29 @@ const volumeBar = document.querySelector(".volume-bar");
 const lblCurrentTime = document.querySelector(".time-elapsed");
 const lblDuration = document.querySelector(".time-duration");
 const btnFullscreen = document.getElementById("btn-fullscreen");
+
+// Listeners
+btnPlay.addEventListener("click", togglePlay);
+videoPlayer.addEventListener("click", togglePlay);
+videoPlayer.addEventListener("ended", () => setBtnPlayIcon(false));
+
+// Helpers
+function setBtnPlayIcon(isPlaying) {
+  if (isPlaying) {
+    btnPlay.classList.replace("fa-play", "fa-pause");
+    btnPlay.setAttribute("title", "Pause");
+  } else {
+    btnPlay.classList.replace("fa-pause", "fa-play");
+    btnPlay.setAttribute("title", "Play");
+  }
+}
+
+function togglePlay() {
+  if (videoPlayer.paused) {
+    videoPlayer.play();
+    setBtnPlayIcon(true);
+  } else {
+    videoPlayer.pause();
+    setBtnPlayIcon(false);
+  }
+}
