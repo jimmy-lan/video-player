@@ -12,8 +12,11 @@ const btnFullscreen = document.getElementById("btn-fullscreen");
 
 // Listeners
 btnPlay.addEventListener("click", togglePlay);
+
 videoPlayer.addEventListener("click", togglePlay);
 videoPlayer.addEventListener("ended", () => setBtnPlayIcon(false));
+videoPlayer.addEventListener("timeupdate", updateProgressBar);
+videoPlayer.addEventListener("canplay", updateProgressBar);
 
 // Helpers
 function setBtnPlayIcon(isPlaying) {
@@ -34,4 +37,10 @@ function togglePlay() {
     videoPlayer.pause();
     setBtnPlayIcon(false);
   }
+}
+
+function updateProgressBar() {
+  progressBar.style.width = `${
+    (videoPlayer.currentTime / videoPlayer.duration) * 100
+  }%`;
 }
