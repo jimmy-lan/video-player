@@ -43,4 +43,19 @@ function updateProgressBar() {
   progressBar.style.width = `${
     (videoPlayer.currentTime / videoPlayer.duration) * 100
   }%`;
+  lblCurrentTime.textContent = formatDisplayTime(videoPlayer.currentTime) + "/";
+  lblDuration.textContent = formatDisplayTime(videoPlayer.duration);
+}
+
+/**
+ * format seconds into a time-representing string.
+ * @param {Number} seconds
+ */
+function formatDisplayTime(seconds) {
+  let m = `${Math.floor(seconds / 60)}`;
+  let s = `${Math.ceil(seconds % 60)}`;
+  if (s.length === 1) {
+    s = "0" + s;
+  }
+  return m + ":" + s;
 }
