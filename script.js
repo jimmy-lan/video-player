@@ -12,6 +12,7 @@ const btnFullscreen = document.getElementById("btn-fullscreen");
 
 // Listeners
 btnPlay.addEventListener("click", togglePlay);
+btnVolume.addEventListener("click", toggleVolume);
 
 videoPlayer.addEventListener("click", togglePlay);
 videoPlayer.addEventListener("ended", () => setBtnPlayIcon(false));
@@ -82,7 +83,7 @@ function changeVolume(e) {
   videoPlayer.volume = volume;
 
   // change volume icon
-  btnVolume.className = "";
+  btnVolume.className = "btn";
   if (volume > 0.7) {
     btnVolume.classList.add("fas", "fa-volume-up");
   } else if (volume <= 0.7 && volume > 0) {
@@ -90,4 +91,16 @@ function changeVolume(e) {
   } else {
     btnVolume.classList.add("fas", "fa-volume-off");
   }
+}
+
+function toggleVolume() {
+  if (videoPlayer.volume === 0) {
+    // TODO store previous volume state
+    btnVolume.className = "btn fas fa-volume-down";
+    videoPlayer.volume = 0.5;
+  } else {
+    btnVolume.className = "btn fas fa-volume-off";
+    videoPlayer.volume = 0;
+  }
+  volumeBar.style.width = `${videoPlayer.volume * 100}%`;
 }
