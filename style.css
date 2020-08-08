@@ -113,8 +113,8 @@ body {
   margin-right: 15px;
 }
 
-.fa-play:hover,
-.fa-pause:hover {
+.btn:hover,
+.btn:hover {
   color: var(--primary-color);
   cursor: pointer;
 }

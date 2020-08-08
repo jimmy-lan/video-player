@@ -19,6 +19,7 @@ videoPlayer.addEventListener("timeupdate", updateProgressBar);
 videoPlayer.addEventListener("canplay", updateProgressBar);
 
 progressRange.addEventListener("click", setProgress);
+volumeRange.addEventListener("click", changeVolume);
 
 // Helpers
 function setBtnPlayIcon(isPlaying) {
@@ -66,4 +67,27 @@ function setProgress(e) {
   const newPosition = e.offsetX / progressRange.offsetWidth;
   progressBar.style.width = `${newPosition * 100}%`;
   videoPlayer.currentTime = newPosition * videoPlayer.duration;
+}
+
+function changeVolume(e) {
+  // change volume progress bar appearance
+  let volume = e.offsetX / volumeRange.offsetWidth;
+  if (volume < 0.1) {
+    volume = 0;
+  } else if (volume > 0.9) {
+    volume - 1;
+  }
+  volumeBar.style.width = `${volume * 100}%`;
+
+  videoPlayer.volume = volume;
+
+  // change volume icon
+  btnVolume.className = "";
+  if (volume > 0.7) {
+    btnVolume.classList.add("fas", "fa-volume-up");
+  } else if (volume <= 0.7 && volume > 0) {
+    btnVolume.classList.add("fas", "fa-volume-down");
+  } else {
+    btnVolume.classList.add("fas", "fa-volume-off");
+  }
 }
