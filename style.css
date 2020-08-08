@@ -85,7 +85,7 @@ body {
   left: 15px;
   top: 15px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
 }
 
 .progress-range:hover {

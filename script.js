@@ -18,6 +18,8 @@ videoPlayer.addEventListener("ended", () => setBtnPlayIcon(false));
 videoPlayer.addEventListener("timeupdate", updateProgressBar);
 videoPlayer.addEventListener("canplay", updateProgressBar);
 
+progressRange.addEventListener("click", setProgress);
+
 // Helpers
 function setBtnPlayIcon(isPlaying) {
   if (isPlaying) {
@@ -58,4 +60,10 @@ function formatDisplayTime(seconds) {
     s = "0" + s;
   }
   return m + ":" + s;
+}
+
+function setProgress(e) {
+  const newPosition = e.offsetX / progressRange.offsetWidth;
+  progressBar.style.width = `${newPosition * 100}%`;
+  videoPlayer.currentTime = newPosition * videoPlayer.duration;
 }
